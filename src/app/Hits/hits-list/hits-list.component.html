@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-5">
+    <h2>Contacts</h2>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let contact of hits"
+        (click)="selectHits(Hits)"
+        [class.active]="Hits === selectedHits">
+        {{contact.name}}
+      </li>
+    </ul>
+    <button class="btn btn-warning" (click)="createNewHit()">New</button>
+  </div>
+  <div class="col-md-5 col-md-offset-2">
+    <hits-details
+      [Hits]="selectedHit"
+      [createHandler]="addHit"
+      [updateHandler]="updateHit"
+      [deleteHandler]="deleteHit">
+    </hits-details>
+  </div>
+</div>
